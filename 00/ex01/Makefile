@@ -1,6 +1,6 @@
 NAME = phonebook
 
-SRCS = phonebook.cpp main.cpp utils.cpp
+SRCS = phonebook.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = clang++
@@ -15,6 +15,6 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

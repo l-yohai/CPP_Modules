@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 00:05:25 by yohlee            #+#    #+#             */
-/*   Updated: 2020/08/21 15:25:09 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/08/23 10:56:52 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,36 @@
 
 Contact::Contact() {}
 
-Contact::Contact(std::string info[11]) :
-	_first_name(info[0]), _last_name(info[1]), _nickname(info[2]), _login(info[3]),
-	_postal_address(info[4]), _email_address(info[5]), _phone_number(info[6]),
-	_birthday_date(info[7]), _favorite_meal(info[8]), _underwear_color(info[9]),
-	_darkest_secret(info[10])
+Contact:: Contact(std::string data[11]) :
+	first_name(data[0]), last_name(data[1]), nickname(data[2]), login(data[3]),
+	postal_address(data[4]), email_address(data[5]), phone_number(data[6]),
+	birthday_date(data[7]), favorite_meal(data[8]), underwear_color(data[9]),
+	darkest_secret(data[10])
 {}
-
-std::string Contact::getFirstName(void) { return (_first_name); }
-std::string Contact::getLastName(void) { return (_last_name); }
-std::string Contact::getLogin(void) { return (_login); }
 
 void Contact::str()
 {
-	(!_first_name.empty()) ? std::cout << _first_name << std::endl : std::cout;
-	(!_last_name.empty()) ? std::cout << _last_name << std::endl : std::cout;
-	(!_nickname.empty()) ? std::cout << _nickname << std::endl : std::cout;
-	(!_login.empty()) ? std::cout << _login << std::endl : std::cout;
-	(!_postal_address.empty()) ? std::cout << _postal_address << std::endl : std::cout;
-	(!_email_address.empty()) ? std::cout << _email_address << std::endl : std::cout;
-	(!_phone_number.empty()) ? std::cout << _phone_number << std::endl : std::cout;
-	(!_birthday_date.empty()) ? std::cout << _birthday_date << std::endl : std::cout;
-	(!_favorite_meal.empty()) ? std::cout << _favorite_meal << std::endl : std::cout;
-	(!_underwear_color.empty()) ? std::cout << _underwear_color << std::endl : std::cout;
-	(!_darkest_secret.empty()) ? std::cout << _darkest_secret << std::endl : std::cout;
+	(!first_name.empty()) ? std::cout << first_name << std::endl : std::cout;
+	(!last_name.empty()) ? std::cout << last_name << std::endl : std::cout;
+	(!nickname.empty()) ? std::cout << nickname << std::endl : std::cout;
+	(!login.empty()) ? std::cout << login << std::endl : std::cout;
+	(!postal_address.empty()) ? std::cout << postal_address << std::endl : std::cout;
+	(!email_address.empty()) ? std::cout << email_address << std::endl : std::cout;
+	(!phone_number.empty()) ? std::cout << phone_number << std::endl : std::cout;
+	(!birthday_date.empty()) ? std::cout << birthday_date << std::endl : std::cout;
+	(!favorite_meal.empty()) ? std::cout << favorite_meal << std::endl : std::cout;
+	(!underwear_color.empty()) ? std::cout << underwear_color << std::endl : std::cout;
+	(!darkest_secret.empty()) ? std::cout << darkest_secret << std::endl : std::cout;
+}
+
+std::string Contact::getFirstName(void) {
+	return(first_name);
+}
+
+std::string Contact::getLastName(void) {
+	return(last_name);
+}
+
+std::string Contact::getNicname(void) {
+	return(nickname);
 }
