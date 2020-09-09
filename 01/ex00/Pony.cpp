@@ -23,12 +23,12 @@ void	Pony::ponyOnTheHeap(std::string name, std::string addr, int age, int height
 	Pony	*new_pony;
 
 	new_pony = new Pony(name, addr, age, height);
-	std::cout << "Heap Pony's name: " << name << " addr: " << addr << " age: " << std::to_string(age) << " height: " << std::to_string(height) << std::endl;
+	std::cout << "Heap Pony's name: " << new_pony->_name << " addr: " << new_pony->_addr << " age: " << std::to_string(new_pony->_age) << " height: " << std::to_string(new_pony->_height) << std::endl;
 	delete new_pony;
 }
 
 void	Pony::ponyOnTheStack(std::string name, std::string addr, int age, int height)
 {
 	Pony	new_pony(name, addr, age, height);
-	std::cout << "Stack Pony's name: " << name << " addr: " << addr << " age: " << std::to_string(age) << " height: " << std::to_string(height) << std::endl;
+	std::cout << "Stack Pony's name: " << new_pony._name << " addr: " << new_pony._addr << " age: " << std::to_string(new_pony._age) << " height: " << std::to_string(new_pony._height) << std::endl;
 }
