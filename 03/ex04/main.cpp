@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 02:03:39 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:55:02 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:58:09 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main(void)
 {
+	std::cout << "======================FragTrap=====================" << std::endl;
 	FragTrap dragoon("Dragoon");
 	std::string target = "marine";
 
@@ -48,7 +49,8 @@ int main(void)
 
 	std::cout << "Marine is died." << std::endl;
 
-	std::cout << std::endl << "New Challenge!" << std::endl;
+	std::cout << std::endl << "======================ScavTrap=====================" << std::endl;
+	std::cout << "New Challenge!" << std::endl;
 
 	ScavTrap goliath("Goliath");
 	target = "Dragoon & Hydralisk";
@@ -77,6 +79,8 @@ int main(void)
 
 	std::cout << "Hydralisk is died." << std::endl << std::endl;
 
+
+	std::cout << "======================NinjaTrap=====================" << std::endl;
 	std::cout << "Ninja appeared!" << std::endl;
 
 	NinjaTrap ninja("Ninja");
@@ -92,12 +96,16 @@ int main(void)
 	dragoon.beRepaired(2);
 	goliath.beRepaired(15);
 
+	ClapTrap SCV;
+
 	std::cout << "Ninja used lethal force!." << std::endl;
 	ninja.ninjaShoebox(dragoon);
 	ninja.ninjaShoebox(goliath);
 	ninja.ninjaShoebox(ninja);
+	ninja.ninjaShoebox(SCV);
 
-	std::cout << std::endl << "Super appeared!" << std::endl;
+	std::cout << std::endl << "======================SuperTrap=====================" << std::endl;
+	std::cout << "Super appeared!" << std::endl;
 	SuperTrap super("Super");
 	std::cout << "Super attacked ninja" << std::endl;
 	ninja.takeDamage(20);
@@ -109,4 +117,5 @@ int main(void)
 
 	super.rangedAttack(ninja.getName());
 	super.meleeAttack(ninja.getName());
+
 }

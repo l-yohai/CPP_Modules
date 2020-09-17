@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 00:27:20 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 02:55:15 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:27:29 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap(std::string name) : _hit_points(100), _max_hit_points(100),
 _energy_points(100), _max_energy_points(100), _level(1), _name(name), _melee_attack_damage(30),
 _ranged_attack_damage(20), _armor_damage_reduction(5)
 {
-	std::cout << _name << " has been generated." << std::endl;
+	std::cout << "FragTrap " << _name << " has been generated." << std::endl;
 	std::cout << "Success Initiate." << std::endl;
 }
 
@@ -45,17 +45,18 @@ FragTrap& FragTrap::operator=(const FragTrap & assign)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << _name << " is died." << std::endl;
+	std::cout << "FragTrap " << _name << " is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
+	std::cout << "FragTrap " << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _melee_attack_damage << std::endl;
+	std::cout << "FragTrap " << _name << " attacks " << target << " at melee, causing " << _melee_attack_damage << std::endl;
 
 }
 
@@ -97,7 +98,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 		int damage[5] = {20, 30, 40, 50, 80};
 
-		std::cout << _name << " attacks " << target << " by " << attack[i] << ", causing " << damage[i] << " points." << std::endl;
+		std::cout << "FragTrap " << _name << " attacks " << target << " by " << attack[i] << ", causing " << damage[i] << " points." << std::endl;
 		std::cout << "EP: " << _energy_points << std::endl;
 	}
 }

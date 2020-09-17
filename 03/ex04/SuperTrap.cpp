@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 18:43:27 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:50:52 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:56:35 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ SuperTrap::SuperTrap() {}
 SuperTrap::SuperTrap(std::string name)
 : ClapTrap(name, 100, 100, 120, 120, 1, 60, 20, 5)
 {
-	std::cout << "Super has been generated." << std::endl;
+	std::cout << "SuperTrap has been generated." << std::endl;
 }
 
-SuperTrap::~SuperTrap() {}
+SuperTrap::~SuperTrap()
+{
+	std::cout << "SuperTrap is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
+}
 
 void SuperTrap::rangedAttack(const std::string & target)
 {
@@ -29,5 +33,5 @@ void SuperTrap::rangedAttack(const std::string & target)
 
 void SuperTrap::meleeAttack(const std::string & target)
 {
-	FragTrap::meleeAttack(target);
+	NinjaTrap::meleeAttack(target);
 }

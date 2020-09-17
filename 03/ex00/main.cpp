@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 02:03:39 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 02:13:18 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:24:40 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(void)
 {
+	std::cout << "=================FragTrap==================" << std::endl;
 	FragTrap dragoon("Dragoon");
 	std::string target = "marine";
 

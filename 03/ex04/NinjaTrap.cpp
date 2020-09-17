@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 17:58:46 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:42:48 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:48:40 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ NinjaTrap::NinjaTrap(std::string name)
 	std::cout << "Ninja thought 'I'm so strong.', but he was so weak." << std::endl;
 }
 
-NinjaTrap::~NinjaTrap() {}
+NinjaTrap::~NinjaTrap()
+{
+	std::cout << "Ninja is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
+}
 
 void NinjaTrap::ninjaShoebox(FragTrap& target)
 {
@@ -35,4 +39,9 @@ void NinjaTrap::ninjaShoebox(ScavTrap& target)
 void NinjaTrap::ninjaShoebox(NinjaTrap& target)
 {
 	std::cout << "Ninja swored " << target.getName() << "'s parents!" << std::endl;
+}
+
+void NinjaTrap::ninjaShoebox(ClapTrap& target)
+{
+	std::cout << "Ninja swored " << target.getName() << "'s myself!" << std::endl;
 }

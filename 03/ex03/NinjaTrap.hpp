@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 17:58:36 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:37:24 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:40:28 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class NinjaTrap : public ClapTrap
 		void ninjaShoebox(FragTrap& target);
 		void ninjaShoebox(ScavTrap& target);
 		void ninjaShoebox(NinjaTrap& target);
+		void ninjaShoebox(ClapTrap& target);
 };
 
 #endif

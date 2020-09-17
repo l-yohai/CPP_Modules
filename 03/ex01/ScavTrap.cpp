@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 02:17:55 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 17:57:00 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:28:41 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string name) : _hit_points(100), _max_hit_points(100),
 _energy_points(50), _max_energy_points(50), _level(1), _name(name), _melee_attack_damage(20),
 _ranged_attack_damage(15), _armor_damage_reduction(3)
 {
-	std::cout << _name << " has been generated." << std::endl;
+	std::cout << "ScavTrap " << _name << " has been generated." << std::endl;
 	std::cout << "Success Initiate." << std::endl;
 }
 
@@ -45,18 +45,18 @@ ScavTrap& ScavTrap::operator=(const ScavTrap & assign)
 
 ScavTrap::~ScavTrap() 
 {
-	std::cout << _name << " is died." << std::endl;
+	std::cout << "ScavTrap " << _name << " is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
 }
 
 void ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
-
+	std::cout << "ScavTrap " << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
 }
 
 void ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _melee_attack_damage << std::endl;
+	std::cout << "ScavTrap " << _name << " attacks " << target << " at melee, causing " << _melee_attack_damage << std::endl;
 
 }
 
@@ -93,5 +93,5 @@ void ScavTrap::challengeNewcomer(void)
 		"vs 2 mutalisk",
 		"vs 1 battle cruiser"
 	};
-	std::cout << _name << ": " << challenges[i] << std::endl;
+	std::cout << "ScavTrap " << _name << ": " << challenges[i] << std::endl;
 }

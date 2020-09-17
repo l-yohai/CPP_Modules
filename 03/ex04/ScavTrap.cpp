@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 02:17:55 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:19:33 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:56:47 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ ScavTrap::ScavTrap(void) : ClapTrap() {}
 ScavTrap::ScavTrap(std::string name)
 : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
-	std::cout << "Success Initiate." << std::endl;
+	std::cout << "ScavTrap Success Initiate." << std::endl;
 }
 
-ScavTrap::~ScavTrap(void) {}
+ScavTrap::~ScavTrap(void)
+{
+	std::cout << "ScavTrap is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
+}
 
 void ScavTrap::challengeNewcomer(void)
 {
@@ -40,5 +44,5 @@ void ScavTrap::challengeNewcomer(void)
 		"vs 2 mutalisk",
 		"vs 1 battle cruiser"
 	};
-	std::cout << _name << ": " << challenges[i] << std::endl;
+	std::cout << "ScavTrap " << _name << ": " << challenges[i] << std::endl;
 }

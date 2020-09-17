@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 00:27:20 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:17:48 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:33:22 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ FragTrap::FragTrap(void) : ClapTrap() {}
 FragTrap::FragTrap(std::string name)
 : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
-	std::cout << "Success Initiate." << std::endl;
+	std::cout << "FragTrap Success Initiate." << std::endl;
 }
 
-FragTrap::~FragTrap(void) {}
+FragTrap::~FragTrap(void)
+{
+	std::cout << "FragTrap " << _name << " is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
+}
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
@@ -45,7 +49,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 		int damage[5] = {20, 30, 40, 50, 80};
 
-		std::cout << _name << " attacks " << target << " by " << attack[i] << ", causing " << damage[i] << " points." << std::endl;
+		std::cout << "FragTrap " << _name << " attacks " << target << " by " << attack[i] << ", causing " << damage[i] << " points." << std::endl;
 		std::cout << "EP: " << _energy_points << std::endl;
 	}
 }

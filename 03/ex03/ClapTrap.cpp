@@ -6,13 +6,24 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 02:53:07 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/17 18:33:57 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/18 05:44:54 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {}
+ClapTrap::ClapTrap()
+{
+	_name = "SCV";
+	_hit_points = 50;
+	_max_hit_points = 50;
+	_energy_points = 5;
+	_max_energy_points = 5;
+	_level = 1;
+	_melee_attack_damage = 2;
+	_ranged_attack_damage = 2;
+	_armor_damage_reduction = 1;
+}
 
 ClapTrap::ClapTrap(std::string name, unsigned int hit_points,
 		unsigned int max_hit_points, unsigned int energy_points,
@@ -24,7 +35,7 @@ ClapTrap::ClapTrap(std::string name, unsigned int hit_points,
 	_level(level), _melee_attack_damage(melee_attack_damage),
 	_ranged_attack_damage(ranged_attack_damage), _armor_damage_reduction(armor_damage_reduction)
 {
-	std::cout << _name << " has been generated." << std::endl;
+	std::cout << "ClapTrap " << _name << " has been generated." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap & copy)
@@ -50,17 +61,18 @@ ClapTrap& ClapTrap::operator=(const ClapTrap & assign)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << _name << " is died." << std::endl;
+	std::cout << "ClapTrap " << _name << " is died." << std::endl;
+	std::cout << "===========================================" << std::endl;
 }
 
 void ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << " at range, causing " << _ranged_attack_damage << std::endl;
 }
 
 void ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << _name << " attacks " << target << " at range, causing " << _melee_attack_damage << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << " at melee, causing " << _melee_attack_damage << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
