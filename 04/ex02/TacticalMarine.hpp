@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:48:12 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 09:00:48 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/21 10:07:39 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/21 14:34:30 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef TACTICALMARINE_HPP
+# define TACTICALMARINE_HPP
 
-# include <iostream>
+# include "ISpaceMarine.hpp"
 
-class Enemy
+class TacticalMarine : public ISpaceMarine
 {
-	private:
-		int _hp;
-		std::string const _type;
 	public:
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy(void);
-		std::string getType() const;
-		int getHP() const;
+		TacticalMarine();
+		TacticalMarine(const TacticalMarine & copy);
+		TacticalMarine& operator=(const TacticalMarine & assign);
+		~TacticalMarine();
 
-		virtual void takeDamage(int damage);
+		virtual ISpaceMarine* clone() const;
+		virtual void battleCry() const;
+		virtual void rangedAttack() const;
+		virtual void meleeAttack() const;
 };
 
 #endif

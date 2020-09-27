@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:48:12 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 09:00:48 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/27 05:09:24 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/27 05:30:51 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <iostream>
+# include "IMateriaSource.hpp"
 
-class Enemy
+class MateriaSource : public IMateriaSource
 {
 	private:
-		int _hp;
-		std::string const _type;
+		AMateria * _source[4];
 	public:
-		Enemy(int hp, std::string const & type);
-		virtual ~Enemy(void);
-		std::string getType() const;
-		int getHP() const;
+		MateriaSource();
+		MateriaSource(const MateriaSource & other);
+		MateriaSource& operator=(const MateriaSource & other);
+		~MateriaSource();
 
-		virtual void takeDamage(int damage);
+		virtual void learnMateria(AMateria*);
+		virtual AMateria* createMateria(std::string const & type);
 };
 
 #endif

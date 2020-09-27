@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:39:33 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:53:33 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/26 23:15:57 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/27 04:42:15 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-PowerFist::PowerFist()
-: AWeapon("Power Fist", 8, 50) {}
+# include "AMateria.hpp"
 
-PowerFist::~PowerFist() {}
-
-void PowerFist::attack() const
+class Ice : public AMateria
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
+	public:
+		Ice();
+		Ice(const Ice & other);
+		Ice& operator=(const Ice & other);
+		~Ice();
+
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
+};
+
+#endif

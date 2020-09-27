@@ -6,21 +6,17 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 07:07:20 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/19 07:24:59 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/21 09:10:31 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(std::string const & name) : _name(name)
-{
-	_ap = 40;
-}
+Character::Character(std::string const & name)
+: _name(name), _ap(40), _weapon(nullptr) {}
 
 Character::Character(const Character & copy)
 {
-	_name = copy._name;
-	_ap = copy._ap;
 	*this = copy;
 }
 
@@ -28,58 +24,84 @@ Character& Character::operator=(const Character & assign)
 {
 	this->_name = assign._name;
 	this->_ap = assign._ap;
+	this->_weapon = assign._weapon;
 	return (*this);
 }
 
-Character::~Character()
-{
-	
-}
+Character::~Character() {}
 
 void Character::recoverAP()
 {
 	_ap += 10;
-	if (_ap >= 40)
+	if (_ap > 40)
 		_ap = 40;
 }
 
 void Character::equip(AWeapon * weapon)
 {
-	_weapon = weapon;
+	this->_weapon = weapon;
 }
 
 void Character::attack(Enemy * enemy)
 {
-	std::cout << _name << " attacks "
+	if (!_weapon)
+	{
+		std::cout << "Not exist Weapon!" << std::endl;
+		return ;
+	}
+	if (!enemy)
+	{
+		std::cout << "Not exist Enemy!" << std::endl;
+	}
+	int apcost = _weapon->getAPCost();
+	if (this->_ap < apcost)
+	{
+		std::cout << "Not enough AP!" << std::endl;
+		return ;
+	}
+	this->_ap -= apcost;
+	std::cout << this->getName() << " attacks "
 			<< enemy->getType() << " with a "
 			<< _weapon->getName() << std::endl;
 	_weapon->attack();
 	enemy->takeDamage(_weapon->getDamage());
 	if (enemy->getHP() <= 0)
-		delete []enemy;
+		delete enemy;
 }
 
-std::string Character::getName() const
+std::string const & Character::getName() const
 {
 	return (this->_name);
 }
 
-std::string Character::display() const
+int const & Character::getAP() const
 {
-	std::string msg;
+	return (this->_ap);
+}
 
-	if ()
-		msg = _name + " has " + _weapon->getAPCost() + _ap
-				+ " and wields a " + _weapon->getName() + "\n";
-	else:
-	{
-		msg = _name + " has " + _weapon->getAPCost() + _ap
-				+ " and is unarmed\n";
-	}
-	return (msg);
+std::string Character::getWeapon() const
+{
+	if (this->_weapon == nullptr)
+		return ("");
+	return (this->_weapon->getName());
 }
 
 std::ostream & operator<<(std::ostream & out, const Character & character)
 {
-	return (out << character.display());
+	std::string msg;
+
+	if (character.getWeapon().empty())
+	{
+		msg = character.getName() + " has "
+				+ std::to_string(character.getAP())
+				+ " AP and is unarmed\n";
+	}
+	else
+	{
+		msg = character.getName() + " has "
+				+ std::to_string(character.getAP())
+				+ " AP and wields a "
+				+ character.getWeapon() + "\n";
+	}
+	return (out << msg);
 }

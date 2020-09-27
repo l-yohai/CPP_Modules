@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:39:33 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:53:33 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/26 20:15:56 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/27 05:28:27 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-PowerFist::PowerFist()
-: AWeapon("Power Fist", 8, 50) {}
+# include "AMateria.hpp"
 
-PowerFist::~PowerFist() {}
-
-void PowerFist::attack() const
+class IMateriaSource
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};
+
+#endif

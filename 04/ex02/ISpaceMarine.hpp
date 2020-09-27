@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:39:33 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:53:33 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/21 10:06:16 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/21 14:33:58 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#ifndef ISPACEMARINE_HPP
+# define ISPACEMARINE_HPP
 
-PowerFist::PowerFist()
-: AWeapon("Power Fist", 8, 50) {}
+# include <iostream>
 
-PowerFist::~PowerFist() {}
-
-void PowerFist::attack() const
+class ISpaceMarine
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
+	public:
+		virtual ~ISpaceMarine() {}
+		virtual ISpaceMarine* clone() const = 0;
+		virtual void battleCry() const = 0;
+		virtual void rangedAttack() const = 0;
+		virtual void meleeAttack() const = 0;
+};
+
+#endif

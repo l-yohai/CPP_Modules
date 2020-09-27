@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 07:03:46 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:56:14 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/26 23:23:24 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/27 04:49:25 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
+#include "Cure.hpp"
 
-RadScorpion::RadScorpion()
-: Enemy(80, "RadScorpion")
+Cure::Cure() : AMateria("cure") {}
+
+Cure::Cure(const Cure & other) : AMateria(other) {}
+
+Cure & Cure::operator=(const Cure & other)
 {
-	std::cout << "* click click click *" << std::endl;
+	this->AMateria::operator=(other);
+	return (*this);
 }
 
-RadScorpion::~RadScorpion()
+Cure::~Cure() {}
+
+AMateria* Cure::clone() const
 {
-	std::cout << "* SPROTCH *" << std::endl;
+	return (new Cure());
 }
 
-void RadScorpion::takeDamage(int damage)
+void Cure::use(ICharacter& target)
 {
-	Enemy::takeDamage(damage);
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	AMateria::use(target);
 }

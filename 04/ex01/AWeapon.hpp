@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 05:41:22 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/19 06:34:25 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/21 09:02:18 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ class AWeapon
 		int _damage;
 	public:
 		AWeapon(std::string const & name, int apcost, int damage);
-		AWeapon(const AWeapon & copy);
-		AWeapon & operator=(const AWeapon & assign);
 		virtual ~AWeapon();
-		std::string getName() const;
+		std::string const & getName() const;
 		int getAPCost() const;
 		int getDamage() const;
 		virtual void attack() const = 0;

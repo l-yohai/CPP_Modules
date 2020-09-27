@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:39:33 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:53:33 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/21 10:01:37 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/21 14:32:25 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#ifndef ISQUAD_HPP
+# define ISQUAD_HPP
 
-PowerFist::PowerFist()
-: AWeapon("Power Fist", 8, 50) {}
+# include "ISpaceMarine.hpp"
 
-PowerFist::~PowerFist() {}
-
-void PowerFist::attack() const
+class ISquad
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
+	public:
+		virtual ~ISquad() {}
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual int push(ISpaceMarine*) = 0;
+};
+
+#endif

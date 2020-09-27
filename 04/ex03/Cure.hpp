@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 06:39:33 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/21 06:53:33 by yohlee           ###   ########.fr       */
+/*   Created: 2020/09/26 23:23:11 by yohlee            #+#    #+#             */
+/*   Updated: 2020/09/27 04:46:41 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-PowerFist::PowerFist()
-: AWeapon("Power Fist", 8, 50) {}
+# include "AMateria.hpp"
 
-PowerFist::~PowerFist() {}
-
-void PowerFist::attack() const
+class Cure : public AMateria
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
-}
+	public:
+		Cure();
+		Cure(const Cure & copy);
+		Cure& operator=(const Cure & assign);
+		~Cure();
+
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
+};
+
+#endif
