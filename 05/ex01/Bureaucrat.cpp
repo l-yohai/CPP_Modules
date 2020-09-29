@@ -6,11 +6,12 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 10:31:45 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/28 12:04:33 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/28 16:26:44 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
@@ -73,6 +74,20 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "BureaucrateException: Grade too low.";
+}
+
+void Bureaucrat::signForm(Form & form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+	
 }
 
 std::ostream & operator<<(std::ostream & out, const Bureaucrat & bur)

@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 17:57:12 by yohlee            #+#    #+#             */
-/*   Updated: 2020/09/28 11:55:13 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/09/28 16:25:46 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -44,6 +46,8 @@ class Bureaucrat
 			public:
 				virtual const char *what() const throw();
 		};
+
+		void signForm(Form & form);
 };
 
 std::ostream & operator<<(std::ostream & out, const Bureaucrat & bur);
