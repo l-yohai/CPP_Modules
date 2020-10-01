@@ -6,31 +6,32 @@
 #    By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/01 04:01:40 by yohlee            #+#    #+#              #
-#    Updated: 2020/10/01 21:05:18 by yohlee           ###   ########.fr        #
+#    Updated: 2020/10/01 21:32:50 by yohlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Serialize
+NAME = identify
 
-SRCS = Serialize.cpp main.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRCS = main.cpp
+OBJS = ${SRCS:.cpp=.o}
 
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
+all: ${NAME}
 
-$(NAME): $(OBJS)
-	@echo "Program name: '$(NAME)' has been compiled successfully."
-	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
+${NAME}: ${OBJS}
+	@echo "Program name: '${NAME}' making start!"
+	@${CXX} ${CXXFLAGS} ${SRCS} -o ${NAME}
+	@echo "Program has been compiled successfully."
 
 clean:
 	@echo "Remove Object Files."
-	@rm -f $(OBJS)
+	@rm -f ${OBJS}
 
 fclean: clean
-	@echo "Remove Object Files and Program name: '$(NAME)'"
-	@rm -f $(NAME)
+	@echo "Remove Object Files and Program name: '${NAME}'"
+	@rm -f ${NAME}
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 05:12:14 by yohlee            #+#    #+#             */
-/*   Updated: 2020/10/01 05:20:49 by yohlee           ###   ########.fr       */
+/*   Updated: 2020/10/01 21:05:00 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,27 @@
 
 void * serialize()
 {
-	char *value;
+	std::string serial = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dis(0, 1000);
-	value = new char[sizeof(char) * 20];
+	std::uniform_int_distribution<int> dis(INT_MIN, INT_MAX);
 
-	std::string serial = std::string(SERIAL);
+	char *ret = new char[sizeof(char) * 20];
 
-	for (int i = 0; i < 20; i++)
-	{
-		if (i >= 9 && i <= 11)
-			continue ;
-		if (i == 8)
-		{
-			*reinterpret_cast<int *>(value + i) = dis(gen);
-			continue ;
-		}
-		char tmp = serial[dis(gen) % serial.size()];
-		value[i] = tmp;
-	}
-	return (static_cast<void *>(value));
+	for (size_t i = 0; i < 8; i++)
+		ret[i] = serial[dis(gen) % serial.length()];
+	*reinterpret_cast<int *>(ret + 8) = dis(gen);
+	for (size_t i = 13; i < 20; i++)
+		ret[i] = serial[dis(gen) % serial.length()];
+	return (static_cast<void *>(ret));
 }
 
 Data * deserialize(void * raw)
 {
-	Data * ret;
+	Data *ret = new Data;
 
-	ret = new Data;
 	ret->s1 = std::string(static_cast<char *>(raw), 8);
-	ret->s2 = std::string(static_cast<char *>(raw) + 12, 8);
 	ret->n = *reinterpret_cast<int *>(static_cast<char *>(raw) + 8);
-
+	ret->s2 = std::string(static_cast<char *>(raw) + 12, 8);
 	return (ret);
 }

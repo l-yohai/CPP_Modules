@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohlee <yohlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 04:56:05 by yohlee            #+#    #+#             */
-/*   Updated: 2020/10/01 21:09:42 by yohlee           ###   ########.fr       */
+/*   Created: 2020/10/01 21:11:39 by yohlee            #+#    #+#             */
+/*   Updated: 2020/10/01 21:24:45 by yohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZE_HPP
-# define SERIALIZE_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 # include <iostream>
 # include <random>
 
-struct Data
+class Base
 {
-	std::string s1;
-	int n;
-	std::string s2;
+	public:
+		virtual ~Base() {}
 };
-
-void * serialize();
-Data * deserialize(void * raw);
 
 #endif
